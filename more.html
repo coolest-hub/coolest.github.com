@@ -210,6 +210,8 @@
             font-weight: bold;
 
             text-align: right;
+
+            visibility: hidden;
         }
 
         .claimed {
@@ -431,13 +433,20 @@
         const status = document.getElementById("codeStatus");
 
 
-        /* SHOW SAVED STATUS */
+        /* SHOW MESSAGE FOR 20 SECONDS */
 
-        if (codeClaimed === "true") {
+        function showStatus(message, className) {
 
-            status.textContent = "CODE CLAIMED";
-            status.className = "code-status claimed";
+            status.textContent = message;
+            status.className = "code-status " + className;
+            status.style.visibility = "visible";
 
+            setTimeout(function() {
+
+                status.textContent = "";
+                status.style.visibility = "hidden";
+
+            }, 20000);
         }
 
 
@@ -453,8 +462,7 @@
 
             if (codeClaimed === "true") {
 
-                status.textContent = "CODE USED";
-                status.className = "code-status used";
+                showStatus("CODE USED", "used");
 
                 return;
             }
@@ -482,15 +490,12 @@
                     "chipsAmount"
                 ).textContent = chips;
 
-                status.textContent = "CODE CLAIMED";
-                status.className = "code-status claimed";
-
-            } else {
-
-                status.textContent = "INVALID CODE";
-                status.className = "code-status used";
+                showStatus("CODE CLAIMED", "claimed");
 
             }
+
+            /* WRONG CODE DOES NOTHING */
+
         }
 
     </script>
