@@ -51,6 +51,39 @@
             text-align: center;
         }
 
+        /* MORE BUTTON */
+
+        .more-button {
+            display: block;
+
+            margin: 0 auto;
+
+            padding: 14px 45px;
+
+            background: rgba(180, 180, 180, 0.35);
+            color: black;
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            text-decoration: none;
+            text-align: center;
+
+            width: fit-content;
+
+            backdrop-filter: blur(5px);
+
+            transition: 0.2s;
+        }
+
+        .more-button:hover {
+            background: rgba(200, 200, 200, 0.5);
+            transform: scale(1.05);
+        }
+
         /* CONTENT */
 
         .content {
@@ -156,6 +189,13 @@
     </div>
 
 
+    <!-- MORE BUTTON -->
+
+    <a href="more.html" class="more-button">
+        MORE
+    </a>
+
+
     <!-- CONTENT -->
 
     <div class="content">
@@ -171,7 +211,7 @@
             <input
                 type="text"
                 class="code-input"
-                placeholder="enter code..."
+                placeholder="Enter code..."
             >
 
             <button class="check-button">
