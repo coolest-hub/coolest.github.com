@@ -55,7 +55,45 @@
 
         .content {
             min-height: 130vh;
-            padding: 50px 40px;
+            padding: 30px 40px;
+        }
+
+        .currency {
+            color: black;
+
+            font-size: 32px;
+            font-weight: bold;
+
+            margin-top: 40px;
+            margin-bottom: 35px;
+        }
+
+        /* CHIPS */
+
+        .chips-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .chips-image {
+            width: 70px;
+            height: 70px;
+
+            border-radius: 8px;
+
+            background: rgba(180, 180, 180, 0.35);
+
+            border: 2px solid rgba(255, 255, 255, 0.3);
+
+            object-fit: cover;
+        }
+
+        .chips {
+            color: black;
+
+            font-size: 30px;
+            font-weight: bold;
         }
 
         /* BACK BUTTON */
@@ -163,8 +201,21 @@
             }
 
             .content {
-                padding: 40px 25px;
+                padding: 30px 25px;
                 min-height: 130vh;
+            }
+
+            .currency {
+                font-size: 28px;
+            }
+
+            .chips {
+                font-size: 26px;
+            }
+
+            .chips-image {
+                width: 60px;
+                height: 60px;
             }
 
             .code-box {
@@ -195,6 +246,25 @@
     <!-- CONTENT -->
 
     <div class="content">
+
+        <div class="currency">
+            CURRENCYS:
+        </div>
+
+        <div class="chips-row">
+
+            <img
+                src="chipy.png"
+                class="chips-image"
+                alt="Chips"
+            >
+
+            <div class="chips">
+                CHIPS:
+            </div>
+
+        </div>
+
     </div>
 
 
