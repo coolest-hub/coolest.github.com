@@ -92,6 +92,25 @@
             font-weight: bold;
         }
 
+        /* CODE STATUS */
+
+        .code-status {
+            margin-top: 30px;
+
+            font-size: 22px;
+            font-weight: bold;
+
+            min-height: 28px;
+        }
+
+        .claimed {
+            color: green;
+        }
+
+        .used {
+            color: red;
+        }
+
         /* BACK BUTTON */
 
         .back-container {
@@ -261,6 +280,8 @@
 
         </div>
 
+        <div id="codeStatus" class="code-status"></div>
+
     </div>
 
 
@@ -283,11 +304,15 @@
 
             <input
                 type="text"
+                id="codeInput"
                 class="code-input"
                 placeholder="Enter code..."
             >
 
-            <button class="check-button">
+            <button
+                class="check-button"
+                onclick="claimCode()"
+            >
                 ✓
             </button>
 
@@ -298,24 +323,81 @@
 
     <script>
 
-        // Load saved chips
+        /* CHIPS */
+
         let chips = localStorage.getItem("chips");
 
-        // Everyone starts with 0 chips
         if (chips === null) {
             chips = 0;
             localStorage.setItem("chips", chips);
         }
 
-        // Show chips
+        chips = Number(chips);
+
         document.getElementById("chipsAmount").textContent = chips;
 
 
-        // Function to change and save chips
-        function setChips(amount) {
-            chips = amount;
-            localStorage.setItem("chips", chips);
-            document.getElementById("chipsAmount").textContent = chips;
+        /* CODE */
+
+        const correctCode = "25CHIP.CODE";
+
+        let codeClaimed = localStorage.getItem("25CHIP.CODE.claimed");
+
+        const status = document.getElementById("codeStatus");
+
+
+        /* Show saved status */
+
+        if (codeClaimed === "true") {
+            status.textContent = "CODE CLAIMED";
+            status.className = "code-status claimed";
+        }
+
+
+        /* Claim code */
+
+        function claimCode() {
+
+            const enteredCode =
+                document.getElementById("codeInput").value.trim();
+
+            /* Already used */
+
+            if (codeClaimed === "true") {
+
+                status.textContent = "CODE USED";
+                status.className = "code-status used";
+
+                return;
+            }
+
+
+            /* Correct code */
+
+            if (enteredCode === correctCode) {
+
+                chips += 25;
+
+                localStorage.setItem("chips", chips);
+
+                localStorage.setItem(
+                    "25CHIP.CODE.claimed",
+                    "true"
+                );
+
+                codeClaimed = "true";
+
+                document.getElementById("chipsAmount").textContent = chips;
+
+                status.textContent = "CODE CLAIMED";
+                status.className = "code-status claimed";
+
+            } else {
+
+                status.textContent = "INVALID CODE";
+                status.className = "code-status used";
+
+            }
         }
 
     </script>
