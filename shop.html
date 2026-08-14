@@ -94,6 +94,7 @@
 
             background: #3f3f3f;
 
+            border: none;
             border-radius: 8px;
 
             display: flex;
@@ -105,7 +106,15 @@
             font-size: 14px;
             font-weight: bold;
 
-            cursor: default;
+            cursor: pointer;
+        }
+
+        .shop-square:hover {
+            background: #4a4a4a;
+        }
+
+        .shop-square:active {
+            transform: scale(0.98);
         }
 
         /* OG BLOCK */
@@ -128,6 +137,39 @@
             color: red;
 
             font-size: 45px;
+            font-weight: bold;
+        }
+
+        /* CODE MACHINE */
+
+        .code-machine {
+            margin-top: 60px;
+        }
+
+        .code-machine-title {
+            color: black;
+
+            font-size: 32px;
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        .code-machine-box {
+            width: 300px;
+            height: 100px;
+
+            background: #3f3f3f;
+
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: black;
+
+            font-size: 22px;
             font-weight: bold;
         }
 
@@ -209,6 +251,10 @@
             .lock {
                 font-size: 20px;
             }
+
+            .code-machine-box {
+                width: 250px;
+            }
         }
     </style>
 </head>
@@ -235,63 +281,80 @@
         </div>
 
 
+        <!-- SHOP GRID -->
+
         <div class="shop-grid">
 
             <!-- FIRST ROW -->
 
-            <div class="shop-square og-block">
+            <button class="shop-square og-block">
                 <div>
                     <span class="lock">🔒</span>
                     OG BLOCK
                 </div>
-            </div>
+            </button>
 
-            <div class="shop-square">
+            <button class="shop-square">
                 <span class="locked-x">X</span>
-            </div>
+            </button>
 
-            <div class="shop-square">
+            <button class="shop-square">
                 <span class="locked-x">X</span>
-            </div>
+            </button>
 
-            <div class="shop-square">
+            <button class="shop-square">
                 <span class="locked-x">X</span>
-            </div>
+            </button>
 
 
             <!-- SECOND ROW -->
 
-            <div class="shop-square">
+            <button class="shop-square">
                 <span class="locked-x">X</span>
-            </div>
+            </button>
 
-            <div class="shop-square og-block">
+            <button class="shop-square og-block">
                 <div>
                     <span class="lock">🔒</span>
                     OG BLOCK
                 </div>
-            </div>
+            </button>
 
-            <div class="shop-square og-block">
+            <button class="shop-square og-block">
                 <div>
                     <span class="lock">🔒</span>
                     OG BLOCK
                 </div>
-            </div>
+            </button>
 
-            <div class="shop-square">
+            <button class="shop-square">
                 <span class="locked-x">X</span>
-            </div>
+            </button>
 
 
             <!-- THIRD ROW -->
 
-            <div class="shop-square">
+            <button class="shop-square">
                 <span class="locked-x">X</span>
+            </button>
+
+            <button class="shop-square">
+                <span class="locked-x">X</span>
+            </button>
+
+        </div>
+
+
+        <!-- CODE MACHINE -->
+
+        <div class="code-machine">
+
+            <div class="code-machine-title">
+                CODE MACHINE
             </div>
 
-            <div class="shop-square">
-                <span class="locked-x">X</span>
+            <div class="code-machine-box">
+                CODE MACHINE
             </div>
 
         </div>
