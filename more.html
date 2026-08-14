@@ -58,13 +58,56 @@
             padding: 30px 40px;
         }
 
+        /* SHOPS */
+
+        .shops-title {
+            color: black;
+
+            font-size: 32px;
+            font-weight: bold;
+
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .shop-button {
+            display: inline-block;
+
+            padding: 12px 35px;
+
+            background: rgba(180, 180, 180, 0.35);
+            color: black;
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            text-decoration: none;
+            text-align: center;
+
+            backdrop-filter: blur(5px);
+
+            transition: 0.2s;
+
+            margin-bottom: 40px;
+        }
+
+        .shop-button:hover {
+            background: rgba(200, 200, 200, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* CURRENCYS */
+
         .currency {
             color: black;
 
             font-size: 32px;
             font-weight: bold;
 
-            margin-top: 40px;
+            margin-top: 10px;
             margin-bottom: 35px;
         }
 
@@ -220,6 +263,7 @@
                 min-height: 130vh;
             }
 
+            .shops-title,
             .currency {
                 font-size: 28px;
             }
@@ -262,9 +306,25 @@
 
     <div class="content">
 
+        <!-- SHOPS -->
+
+        <div class="shops-title">
+            SHOPS:
+        </div>
+
+        <a href="shop.html" class="shop-button">
+            SHOP
+        </a>
+
+
+        <!-- CURRENCYS -->
+
         <div class="currency">
             CURRENCYS:
         </div>
+
+
+        <!-- CHIPS -->
 
         <div class="chips-row">
 
@@ -341,7 +401,9 @@
 
         const correctCode = "25CHIP.CODE";
 
-        let codeClaimed = localStorage.getItem("25CHIP.CODE.claimed");
+        let codeClaimed = localStorage.getItem(
+            "25CHIP.CODE.claimed"
+        );
 
         const status = document.getElementById("codeStatus");
 
@@ -349,8 +411,10 @@
         /* Show saved status */
 
         if (codeClaimed === "true") {
+
             status.textContent = "CODE CLAIMED";
             status.className = "code-status claimed";
+
         }
 
 
@@ -360,6 +424,7 @@
 
             const enteredCode =
                 document.getElementById("codeInput").value.trim();
+
 
             /* Already used */
 
@@ -378,7 +443,10 @@
 
                 chips += 25;
 
-                localStorage.setItem("chips", chips);
+                localStorage.setItem(
+                    "chips",
+                    chips
+                );
 
                 localStorage.setItem(
                     "25CHIP.CODE.claimed",
@@ -387,7 +455,9 @@
 
                 codeClaimed = "true";
 
-                document.getElementById("chipsAmount").textContent = chips;
+                document.getElementById(
+                    "chipsAmount"
+                ).textContent = chips;
 
                 status.textContent = "CODE CLAIMED";
                 status.className = "code-status claimed";
