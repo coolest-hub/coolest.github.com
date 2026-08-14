@@ -1,1 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>COOLEST - MORE</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+        }
+
+        body {
+            margin: 0;
+            min-height: 220vh;
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                to bottom,
+                #32134f 0%,
+                #3d185d 45%,
+                #4a1d6b 100%
+            );
+
+            overflow-x: hidden;
+        }
+
+        /* TITLE AREA */
+
+        .top {
+            height: 45vh;
+            min-height: 300px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .title {
+            color: black;
+
+            font-size: 52px;
+            font-weight: bold;
+
+            text-align: center;
+        }
+
+        /* CONTENT */
+
+        .content {
+            min-height: 130vh;
+            padding: 50px 40px;
+        }
+
+        /* BACK BUTTON */
+
+        .back-container {
+            height: 25vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button {
+            padding: 14px 45px;
+
+            background: rgba(180, 180, 180, 0.35);
+            color: black;
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            text-decoration: none;
+            text-align: center;
+
+            backdrop-filter: blur(5px);
+
+            transition: 0.2s;
+        }
+
+        .back-button:hover {
+            background: rgba(200, 200, 200, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* BOTTOM */
+
+        .bottom {
+            height: 35vh;
+
+            background: linear-gradient(
+                to bottom,
+                #4a1d6b 0%,
+                #3d185d 60%,
+                #32134f 100%
+            );
+
+            position: relative;
+        }
+
+        /* CODE BOX */
+
+        .code-box {
+            position: absolute;
+
+            right: 25px;
+            bottom: 25px;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .code-input {
+            width: 180px;
+            height: 42px;
+
+            border: none;
+            border-radius: 8px;
+
+            padding: 0 12px;
+
+            font-size: 16px;
+            outline: none;
+        }
+
+        .check-button {
+            width: 42px;
+            height: 42px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: white;
+            color: black;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .check-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .title {
+                font-size: 40px;
+            }
+
+            .content {
+                padding: 40px 25px;
+                min-height: 130vh;
+            }
+
+            .code-box {
+                right: 15px;
+                bottom: 15px;
+            }
+
+            .code-input {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP -->
+
+    <div class="top">
+
+        <div class="title">
+            COOLEST
+        </div>
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div class="content">
+    </div>
+
+
+    <!-- BACK BUTTON -->
+
+    <div class="back-container">
+
+        <a href="index.html" class="back-button">
+            BACK
+        </a>
+
+    </div>
+
+
+    <!-- BOTTOM -->
+
+    <div class="bottom">
+
+        <div class="code-box">
+
+            <input
+                type="text"
+                class="code-input"
+                placeholder="Enter code..."
+            >
+
+            <button class="check-button">
+                ✓
+            </button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
