@@ -256,7 +256,7 @@
             >
 
             <div class="chips">
-                CHIPS:
+                CHIPS: <span id="chipsAmount">0</span>
             </div>
 
         </div>
@@ -294,6 +294,31 @@
         </div>
 
     </div>
+
+
+    <script>
+
+        // Load saved chips
+        let chips = localStorage.getItem("chips");
+
+        // Everyone starts with 0 chips
+        if (chips === null) {
+            chips = 0;
+            localStorage.setItem("chips", chips);
+        }
+
+        // Show chips
+        document.getElementById("chipsAmount").textContent = chips;
+
+
+        // Function to change and save chips
+        function setChips(amount) {
+            chips = amount;
+            localStorage.setItem("chips", chips);
+            document.getElementById("chipsAmount").textContent = chips;
+        }
+
+    </script>
 
 </body>
 </html>
