@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,25 +136,6 @@
             font-weight: bold;
         }
 
-        /* CODE STATUS */
-
-        .code-status {
-            margin-top: 30px;
-
-            font-size: 22px;
-            font-weight: bold;
-
-            min-height: 28px;
-        }
-
-        .claimed {
-            color: green;
-        }
-
-        .used {
-            color: red;
-        }
-
         /* BACK BUTTON */
 
         .back-container {
@@ -204,14 +186,43 @@
             position: relative;
         }
 
-        /* CODE BOX */
+        /* CODE AREA */
 
-        .code-box {
+        .code-area {
             position: absolute;
 
             right: 25px;
             bottom: 25px;
 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            gap: 8px;
+        }
+
+        /* CODE STATUS */
+
+        .code-status {
+            min-height: 28px;
+
+            font-size: 22px;
+            font-weight: bold;
+
+            text-align: right;
+        }
+
+        .claimed {
+            color: green;
+        }
+
+        .used {
+            color: red;
+        }
+
+        /* CODE BOX */
+
+        .code-box {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -277,13 +288,17 @@
                 height: 60px;
             }
 
-            .code-box {
+            .code-area {
                 right: 15px;
                 bottom: 15px;
             }
 
             .code-input {
                 width: 150px;
+            }
+
+            .code-status {
+                font-size: 19px;
             }
         }
     </style>
@@ -340,8 +355,6 @@
 
         </div>
 
-        <div id="codeStatus" class="code-status"></div>
-
     </div>
 
 
@@ -360,21 +373,31 @@
 
     <div class="bottom">
 
-        <div class="code-box">
+        <div class="code-area">
 
-            <input
-                type="text"
-                id="codeInput"
-                class="code-input"
-                placeholder="Enter code..."
-            >
+            <!-- CODE STATUS -->
 
-            <button
-                class="check-button"
-                onclick="claimCode()"
-            >
-                ✓
-            </button>
+            <div id="codeStatus" class="code-status"></div>
+
+            <!-- CODE INPUT -->
+
+            <div class="code-box">
+
+                <input
+                    type="text"
+                    id="codeInput"
+                    class="code-input"
+                    placeholder="Enter code..."
+                >
+
+                <button
+                    class="check-button"
+                    onclick="claimCode()"
+                >
+                    ✓
+                </button>
+
+            </div>
 
         </div>
 
@@ -408,7 +431,7 @@
         const status = document.getElementById("codeStatus");
 
 
-        /* Show saved status */
+        /* SHOW SAVED STATUS */
 
         if (codeClaimed === "true") {
 
@@ -418,7 +441,7 @@
         }
 
 
-        /* Claim code */
+        /* CLAIM CODE */
 
         function claimCode() {
 
@@ -426,7 +449,7 @@
                 document.getElementById("codeInput").value.trim();
 
 
-            /* Already used */
+            /* ALREADY USED */
 
             if (codeClaimed === "true") {
 
@@ -437,7 +460,7 @@
             }
 
 
-            /* Correct code */
+            /* CORRECT CODE */
 
             if (enteredCode === correctCode) {
 
